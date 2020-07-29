@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if current_user.is_authenticated %}
+        <h1>{{current_user.username}}</h1>
+        <legend style="padding: 3%;">Favourite Artists</legend>
+        <div class="fav-artist">
+            {% for i in fav %}
+                <h2> <a  href="{{ url_for('users.artist_info',a_name=i.name) }}">{{ i.name }}</a></h2>
+                <form action="{{ url_for('users.del_art',a_name=i.name) }}" method="POST">
+                    <input  style="background-color: grey;" type="submit" value="Delete">
+                </form>
+            {% endfor %}
+        </div>
+            
+    {% endif %}
+{% endblock content %}

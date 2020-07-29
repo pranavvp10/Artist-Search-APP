@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<legend>Artist info</legend>
+ 
+<div class="artist-info" style="padding:3%;">
+         <h1>{{ artist.name }}</h1>
+        <p>Followers:  {{ artist.followers }}</p>
+        <p>Popularity: {{ artist.popularity }}
+        <p>Genres:  {{ artist.genres }}</p>
+</div>
+<div class="top-tracks">
+    <h2>Top Tracks</h2>
+    {% for i in tt %}
+    <p>{{ i['track name'] }}</p>
+    {% endfor %}
+</div>
+
+{% endblock content %}
